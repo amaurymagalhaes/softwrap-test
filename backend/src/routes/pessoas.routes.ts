@@ -32,16 +32,17 @@ pessoasRouter.post('/', async (request, response) => {
       cidade,
       estado,
     });
-    return response.json(people);
+    return response.json('Cadastro criado com sucesso.');
   } else {
-    return response.json('Já existe CPF.');
+    return response.json('CPF já existente.');
   }
 });
 
-pessoasRouter.put('/', async (request, response) => {
+pessoasRouter.put('/:id', async (request, response) => {
   const { nome, idade, estadocivil, cpf, cidade, estado } = request.body;
+  const id = request.params.id;
   const people = new Pessoa(nome, idade, estadocivil, cpf, cidade, estado);
-  await pessoasDB.doc('UkZjF7XnrohX7WB79m1H').update({
+  await pessoasDB.doc(id).update({
     nome,
     idade,
     estadocivil,
@@ -49,13 +50,13 @@ pessoasRouter.put('/', async (request, response) => {
     cidade,
     estado,
   });
-  return response.json(people);
+  return response.json('Cadastro alterado com sucesso.');
 });
 
 pessoasRouter.delete('/:id', async (request, response) => {
   const id = request.params.id;
   await pessoasDB.doc(id).delete();
-  return response.json(id);
+  return response.json('Cadastro excluído com sucesso.');
 });
 
 pessoasRouter.get('/', async (request, response) => {
