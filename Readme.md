@@ -88,7 +88,7 @@ yarn dev:server
 - A biblioteca React-Router-DOM para fazer a navegação de rotas entre as páginas.
 - ESLint e Prettier foi utilizado para fazer a padronização do código e manter limpo.
 
-##Desejos
+## Desejos
 - Gostaria de desestruturar mais componentes do projeto.
 - Melhorar um pouco mais o front-end pra chegar mais perto das telas prototipadas.
 
